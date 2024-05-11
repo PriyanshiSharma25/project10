@@ -79,8 +79,15 @@ public class FrontCtl extends HandlerInterceptorAdapter {
 		}
 		System.out.println("going to return true");
 		return true;
+//			if(session.getAttribute("user")== null) {
+//				PrintWriter out = response.getWriter();
+//				out.print("{\"success\":\"false\",\"error\":\"OOPS! Your session has been expired\"}");
+//				out.close();
+//				return false;
+//			}
+//	}
+//return true;
 	}
-
 	
 
 //		boolean pass= false;

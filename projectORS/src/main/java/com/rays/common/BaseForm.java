@@ -11,6 +11,7 @@ public class BaseForm {
 
 	/**
 	 * Contains non-business primary key
+	 * 
 	 */
 	protected Long id = null;
 

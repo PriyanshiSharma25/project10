@@ -89,7 +89,7 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 
 	@PostMapping("login")
 	public ORSResponse login(@RequestBody @Valid LoginForm form, BindingResult bindingResult, HttpSession session,HttpServletRequest request)throws Exception {
-
+       
 		ORSResponse res = validate(bindingResult);
 
 		if (!res.isSuccess()) {
@@ -107,6 +107,7 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 //			 session.setAttribute("userContext", context); 				
 			
 			session.setAttribute("test", dto.getFirstName()); 
+			session.setAttribute("user", dto);
 			
 			res.setSuccess(true);
 			res.addData(dto);
