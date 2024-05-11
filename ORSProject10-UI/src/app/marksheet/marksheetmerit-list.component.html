@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="content-wrapper" style="padding-top: 2%; padding-bottom:2%;
+
+background: url(assets/files/black.jpg) no-repeat center center;
+background-attachment: fixed;
+background-size: cover;width:100%;
+  height: auto;">
+  <div class="container-fluid">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="height: 50px;">
+        <div class="col-sm-12 pt-3"> 
+          <h1 class="text-primary text-center font-weight-bold">{{'Marksheet Merit List' | translate}}</h1>
+        </div>
+      </div>
+
+       <div style="margin-left: 87%;" class="pb-2">
+
+        <a href="http://localhost:8084/Jasper/report" class="btn btn-lg btn-primary " role="button"  target="blank">
+          <span class="fa fa-print mr-1"></span>{{'Print' | translate}}</a>
+      </div> 
+
+      <div class="p-1">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="text-uppercase" style="background-color: #C2B280;">
+              <tr>
+              <th >{{'S.No' | translate}}</th>
+							<th >{{'RollNO' | translate}}  </th>
+							<th >{{'Name' | translate}}</th>
+							<th >{{'Physics' | translate}}</th>
+							<th >{{'Chemistry' | translate}}</th>
+							<th >{{'Maths' | translate}}</th>
+							<th >{{'Total' | translate}}</th>
+							<th >{{'Percentage(%)' | translate}}</th>
+						</tr>
+          </thead>
+
+          <tbody>
+						<tr *ngFor="let m of form.list; let i = index" >
+							<td><font style="color: rgb(173, 209, 240);">{{(form.pageNo*5)+i+ 1}} </font></td>
+							<td ><font style="color: rgb(173, 209, 240);">{{m.rollNo}}</font></td>
+							<td ><font style="color: rgb(173, 209, 240);">{{m.name}}</font></td>
+							<td ><font style="color: rgb(173, 209, 240);">{{m.physics}}</font></td>
+              <td><font style="color: rgb(173, 209, 240);"> {{m.chemistry}}</font></td>
+              <td> <font style="color: rgb(173, 209, 240);">{{m.maths}}</font></td>
+              <td><font style="color: rgb(173, 209, 240);">{{m.physics+m.maths+m.chemistry}}</font></td>
+              <td><font style="color: rgb(173, 209, 240);">{{((m.physics+m.maths+m.chemistry)*100)/300 | number:'2.0-2' }}%</font></td>
+							
+						
+						</tr>
+          </tbody>
+          </table>
+      </div>
+
+      <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+      <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+      <div class="p-1">
+        <div class="table-responsive">
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div><app-footer>
+  
+</app-footer>
